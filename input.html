@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: black;
+            
+        }
+        form
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        
+        }
+        h1{
+            top: 100px;
+            position: absolute;
+            color: rgb(144, 198, 216);
+            font-weight: 100;
+            font-size: 35px;
+        }
+        input{
+            width: 380px;
+            height: 3px;
+            position: absolute;
+            bottom: 288px;
+            transition: 0.7s all;
+            outline: none;
+            border-radius: 5px;
+            border: none;
+        }
+        label{
+            display: flex;
+            align-items: center;
+            color: rgb(144, 198, 216);
+            font-size: 18px;
+            left: -168px;
+            position: relative;
+            transition: 0.7s all;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Animation Input</h1>
+    <form >
+        <input type="text" name="name" id="name" autocomplete="off" >
+        <label for="name" onmouseover="expand(this)" id="name-content">Name</label>
+    </form>
+    <script>
+            function expand(lbl)
+            {
+                let i=0;
+                if(i==0)
+                {
+                let elmid = lbl.getAttribute("for");
+                document.getElementById(elmid).style.height="40px";
+                document.getElementById(elmid).style.background="rgb(144, 198, 216)"
+                lbl.style.transform="translateY(-35px)";
+                }
+                else if(i==1)
+                {
+                    let elmid = lbl.getAttribute("for");
+                document.getElementById(elmid).style.height="3px";
+                //lbl.style.transform="translateY(-45px)"; 
+                }
+            
+            }
+    </script>
+</body>
+</html>

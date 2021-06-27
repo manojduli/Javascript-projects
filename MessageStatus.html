@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: cornflowerblue;
+        font-family: 'calibri',sans-serif;
+        text-transform: capitalize;
+    }
+    .container{
+        text-align: center;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background: white;
+        flex: 0 0 80%;
+    }
+    button{
+        display: block;
+        margin: 10px auto;
+        padding: 10px 18px;
+        font-size: 25px;
+        border-radius: 5px;
+        text-transform: capitalize;
+        outline: none;
+        color: white;
+        background: cornflowerblue;
+        border: none;
+    }
+    button:hover{
+        opacity: 0.8;
+        cursor: pointer;
+    }
+    input[type='text']
+    {
+        font-size: 20px;
+        margin: 20px auto;
+        padding: 5px 10px;
+        text-transform: capitalize;
+        border: 2px solid cornflowerblue;
+        outline: none;
+        border-radius: 5px;
+    }
+    input:focus{
+        color: cornflowerblue;
+    }
+    #messageout{
+        color: cornflowerblue;
+        font-weight: 100;
+        font-style: italic;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>message you would like to deliver</h1>
+        <input type="text" name="text" id="messagein">
+
+        <button type="button" class="btn">Press to send</button>
+        <h1>last message delivered</h1>
+        <h1 id="messageout"></h1>
+    </div>
+    <script>
+        let msgin=document.querySelector('#messagein');
+        let msgout=document.querySelector('#messageout');
+        let btn=document.querySelector('.btn');
+
+        btn.addEventListener('click',function(){
+            if(msgin.value==='')
+            {
+                alert('enter valid input');
+            }
+            else
+            {
+            msgout.innerHTML=msgin.value;
+            msgin.value=''
+        }
+            })
+    </script>
+</body>
+</html>

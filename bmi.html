@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 50px;
+            background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6)), white;
+        }
+        .container{
+            background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)),whitesmoke;
+                text-align: center;
+                height: 90vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                /* flex: 0 0 50%; */
+                padding: 50px;
+                line-height: 80px;
+                box-shadow: 1px 1px 5px black,
+                            -1px -1px 5px black;
+        }
+        input[type="text"]{
+            height: 30px;
+            width: 90%;
+            text-align: center;
+            font-size: 20px;
+            outline: none;
+        }
+        .btn{
+            padding: 10px 12px;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: coral;
+            color: white;
+            margin: 15px;
+        }
+        .btn:active{
+            opacity: 0.8;
+            box-shadow: 3px 3px 5px black;
+        }
+        .result{
+            background:linear-gradient(rgba(0,0,0,3),rgba(0,0,0,0.1)),steelblue;
+            color: white;
+            height: 50px;            
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .bmiscore{
+            background:linear-gradient(rgba(0,0,0,3),rgba(0,0,0,0.1)),lightskyblue;
+            color: white;
+            height: 50px;            
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./img/bmi.png" alt="bmi" width="300px" height="200px">
+        <h1>Enter weight in Kgs</h1>
+        <input type="text" name="weight" id="weight">
+        <h1>Enter height in cms</h1>
+        <input type="text" name="height" id="height">
+        <button type="button" class="btn">Calculate</button>
+        <div class="bmiscore">BMI Score : 0</div>
+        <div class="result">Enter Details To Check Your BMI</div>
+    </div>
+    <script>
+        let btn=document.querySelector('.btn');
+        let result=document.querySelector('.result');
+        let weight=document.querySelector('#weight');
+        let height=document.querySelector('#height');
+        let bmiscore=document.querySelector('.bmiscore');
+        let bmi=0;
+        
+        
+        btn.addEventListener('click',function(){
+  
+            let heightm=((height.value)/100);
+            // console.log(heightm);
+            let bmi=((weight.value)/(heightm*heightm));
+        //    console.log(height.value);
+        //    console.log(weight.value);
+        //    console.log(bmi);
+           bmiscore.innerHTML=(bmi.toPrecision(2));
+           bmiscore.classList.add('bmiscore');
+            if(bmi<18.5){
+                result.innerHTML='Under Weight'
+                weight.value='';
+                height.value='';
+            }
+            else if(bmi>18.5 && bmi<24.9){
+                result.innerHTML='Normal'
+                weight.value='';
+                height.value='';
+            }
+            else if(bmi>25 && bmi<29.9){
+                result.innerHTML='Over Weight'
+                weight.value='';
+                height.value='';
+            }
+            else if(bmi>30 ){
+                result.innerHTML='Obese'
+                weight.value='';
+                height.value='';
+            }
+            
+
+
+        })
+    </script>
+</body>
+</html>

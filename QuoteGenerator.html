@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<style>
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-transform: capitalize;
+    background: darksalmon;
+}
+.container{
+    text-align: center;
+    background: white;
+    padding: 20px;
+    flex: 0 0 80%;
+    border-left:steelblue 5px solid ;
+    border-top: lightsteelblue 5px solid;
+    border-bottom: lightsteelblue 5px solid;
+    border-right: steelblue 5px solid;
+}
+.btn{
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    outline: none;
+}
+blockquote{
+    border-left: coral 3px solid;
+    background: cornsilk;
+    padding: 5px;
+}
+.author{
+    color: crimson;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h2>Quotes by famous people</h2>
+        <button class="btn">Press To change the Quote</button>
+        <blockquote>
+            <h2 class="quote">quote</h2>
+        </blockquote>
+        <h3 class="author">author of the quote</h3>
+    </div>
+    <script>
+        let quotes=[
+            {
+                name:'- Albert Einstein',
+                quote:'I have no special talent. I am only passionately curious.'
+            },
+
+            {
+                name:'- Mother Teresa',
+                quote:'If you judge people, you have no time to love them.'
+            },
+
+            {
+                name:'- William Shakespeare',
+                quote:'It is not in the stars to hold our destiny but in ourselves.'
+            },
+
+            {
+                name:'- Malcolm X',
+                quote:'The future belongs to those who prepare for it today.'
+            },
+
+            {
+                name:'- LeBron James',
+                quote:'I like criticism. It makes you strong. '
+            },
+
+            {
+                name:'- Eleanor Roosevelt',
+                quote:'The future belongs to those who believe in the beauty of their dreams.'
+            },
+
+            {
+                name:'- Manoj Duli',
+                quote:'Wake up every day with a reason of happiness, to spend the rest of the day happily.'
+            },
+        ];
+
+        let btn=document.querySelector('.btn');
+        let author=document.querySelector('.author');
+        let quote=document.querySelector('.quote');
+
+        btn.addEventListener('click',function(){
+
+            let random=Math.floor(Math.random()*quotes.length);
+
+            author.innerHTML=quotes[random].name;
+            quote.innerHTML=quotes[random].quote;
+        })
+
+
+
+    </script>
+</body>
+</html>

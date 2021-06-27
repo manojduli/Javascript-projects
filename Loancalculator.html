@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            margin-top: 50px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-family:Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: #343A40;
+        }
+        .container
+        {
+            width: 450px;
+            height: auto;
+            background: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+            
+        }
+        .container h1{
+            font-size: 45px;
+            font-weight: 100;
+            padding-bottom: 15px;
+            color: #343A40;
+        }
+        input[type='text']{
+            width: 100%;
+            margin: 8px 0px;
+            height: 30px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            outline: none;
+            padding-left: 12px;
+        }
+        .btn{
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: #343A40;
+            color: white;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+        .btn:active{
+            opacity: 0.9;
+        
+        }
+        i{
+            font-size: 5px;
+            color: black;
+        }
+        .resulth1{
+            padding:15px 0;
+            text-align: center;
+        }
+        .resultcontent{
+            border: 1px solid ;
+            font-size: 20px;
+            outline: none;
+        }
+        .Totalpayment{
+            border: 1px solid;
+            padding: 10px ;
+            margin: 10px 0px;
+            background: #E9ECEF;
+            color: black;
+        }
+        .Totalbg{
+            border-right: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Calculator</h1>
+        <i class="fas fa-rupee-sign"></i>
+        <input type="text" name="Loan" id="loan" placeholder="Loan Amount">
+        <input type="text" name="interest" id="interest" placeholder="Interest">
+        <input type="text" name="Years" id="years" placeholder="Years To Repay">
+        <button type="button" class="btn">Calculate</button>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        let loan=document.querySelector('.loan');
+        let interest=document.querySelector('.interest');
+        let btn=document.querySelector('.btn');
+        let result=document.querySelector('.result');
+
+        btn.addEventListener('click',function(){
+            
+            let resulth1=document.createElement('h2');
+            resulth1.innerHTML='Result';
+            resulth1.classList.add('resulth1');
+            let monthlypayment=document.createElement('input');
+            monthlypayment.innerHTML='Monthly Payment';
+            monthlypayment.classList.add('resultcontent');
+
+            let Totalpayment=document.createElement('p');
+            // Totalpayment.innerHTML='Total Payment';
+            Totalpayment.classList.add('Totalpayment');
+            let Totalbg=Totalpayment.innerText='hi';
+            
+
+            result.appendChild(resulth1);
+            result.appendChild(monthlypayment);
+            result.appendChild(Totalpayment);
+        })
+        // loan.innerHTML='<i class="fas fa-rupee-sign"></i>';
+    </script>
+</body>
+</html>

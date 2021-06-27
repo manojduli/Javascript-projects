@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Site</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./img/count.jpg) no-repeat center center/cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        
+    }
+    .container{
+        text-align: center;
+        flex: 0 0 80%;
+        padding: 50px ;
+    }
+    .counterh1{
+        font-size: 60px;
+        
+    }
+    .btn
+    {
+        margin: 20px 10px;
+        padding: 10px 12px;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    /* .btn:hover{
+        opacity: 0.8;
+    } */
+    .btn:active{
+        background: green;
+        color: white;
+        box-shadow: 3px  3px 8px white;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 class="counterh1">Counter</h1>
+        <h1 id="counter">0</h1>
+        <button class="btn" id="lowercount" type="button">Lower Count</button>
+        <button class="btn" id="addcount" type="button">Add Count</button>
+    </div>
+    <script>
+        let addcount=document.querySelector('#addcount');
+        let lowercount=document.querySelector('#lowercount');
+        let counter=document.querySelector('#counter');
+        let count=0;
+        addcount.addEventListener('click',function(){
+            count++;
+            counter.innerHTML=count;         
+            if(counter.innerHTML >'0'){
+                counter.style.color='yellow';
+            }  
+            else if(counter.innerHTML==='0')
+            {
+                counter.style.color='white';
+            }
+            counter.animate([{opacity:0.2},{opacity:1}],{duration:1000,fill:"forwards"});
+        });
+        lowercount.addEventListener('click',function(){
+            count--;
+            counter.innerHTML=count;
+            if(counter.innerHTML<'0')
+            {
+                counter.style.color='red';
+            }
+            else if(counter.innerHTML==='0')
+            {
+                counter.style.color='white';
+            }
+            counter.animate([{opacity:0.2},{opacity:1}],{duration:1000,fill:"backwards"});
+        });
+        
+    </script>
+</body>
+</html>

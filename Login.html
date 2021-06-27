@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgba(0, 77, 122, 0.5),rgba(228, 230, 124, 0.7));
+    }
+    form{
+        height: 70vh;
+        width: 450px;
+        background: black;
+        box-shadow: 5px 5px 10px black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 8px;
+    }
+    input{
+        width: 250px;
+        height: 2px;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        padding: 0px 8px;
+        font-size: 15px;
+        color: whitesmoke;
+        position: absolute;
+        background: grey;
+        transition: 0.8s all;
+        cursor:context-menu;
+    }
+    ::placeholder{
+        color: transparent;
+    }
+    #username{
+        bottom: 350px;
+    }
+    #password{
+        bottom: 260px;
+    }
+    label[for="username"]{
+        color: white;
+        bottom: 352px;
+        left: 198px;
+        position: absolute;
+        transition: 0.8s all;
+    }
+    label[for="password"]{
+        color: white;
+        bottom: 262px;
+        left: 198px;
+        position: absolute;
+        transition: 0.8s all;
+    }
+    .btn{
+        bottom: 180px;
+        left: 198px;
+        position: absolute;
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 10px 15px;
+        width: 120px;
+        outline: none;
+        border: none;
+        color: white;
+        background:green;
+        transition: 0.5s all;
+    }
+
+</style>
+<body>
+    <form>
+        <label for="username" onmouseover="expand(this)">User Name</label>
+        <input type="text" name="username" id="username" placeholder="Enter username"  >
+        <label for="password" onmouseover="expand(this)" >Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter Password" >
+        <button type="button" class="btn" onmouseover="enlarge()">Submit</button>
+    </form>
+    <script>
+        function expand(lbl){
+            let elmid=lbl.getAttribute("for");
+            document.getElementById(elmid).style.height="40px";
+            lbl.style.transform ="translateY(-45px)";
+        }
+        function enlarge()
+        {
+            let btn=document.querySelector('.btn');
+            btn.style.width="250px";
+            btn.style.background="red";
+        }
+    </script>
+</body>
+</html>

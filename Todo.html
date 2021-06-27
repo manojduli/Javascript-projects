@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            font-family:sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container
+        {
+            width: 500px;
+            height: 95vh;
+            /* display: flex;
+            align-items: center;
+            justify-content:flex-start; */
+            /*border: 1px solid black;*/
+            box-shadow:  3px 3px 10px grey, -3px -3px 10px grey;
+
+            /* flex: 0 0 80%; */
+        }
+        .add-item{
+            margin: 15px;
+            font-weight: 100;
+
+        }
+        .add-item h1{
+            font-weight: 100;
+            padding-bottom: 15px;
+        }
+        input[type='text']
+        {
+            height: 20px;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid;
+            outline: none;
+            font-size: 20px;
+        }
+        
+        input[type='text']:focus
+        {
+            height: 30px;
+            width: 100%;
+            border-bottom: 1px solid #2BBBAD;
+            text-transform: capitalize;
+            
+        }
+        .addtask{
+            margin: 15px 0px;
+            padding: 12px 25px;
+            color: white;
+            background: #2BBBAD;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            text-transform: uppercase;
+        }
+        .addtask:hover{
+            opacity: 0.8;
+        }
+        .divider{
+            border-top: 1px dashed;
+        }
+        .tasks
+        {
+           
+            margin: 20px;
+        }
+        .cleartask
+        {
+            margin: 15px 0px;
+            padding: 10px 22px;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            background: black;
+            text-transform: capitalize;
+        }
+        .cleartask:hover{
+            opacity: 0.7;
+        }
+        .task-list{
+            text-transform: capitalize;
+            padding: 20px 0px;
+        }
+        .paragraph-styling:nth-child(odd){
+            background: gray;
+            color: white;
+            border: none;
+            padding: 10px 8px ;
+        }
+        .paragraph-styling:nth-child(even){
+            background: whitesmoke;
+            color:  black;
+            border:none;
+            padding: 10px 8px ;
+        }
+        .remove-item
+        {
+            float: right;
+            /* margin: 8px 15px; */
+            vertical-align: middle;
+            color: orange;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="add-item">
+            <h1>Task List</h1>
+            <!-- <p >New Task</p> -->
+            <input type="text" name="text" id="text" placeholder="New Task">
+            <button type="button" class="addtask">Add Task</button>
+        </div>
+        <div class="divider"></div>
+        <div class="tasks">
+            <h2>Tasks</h2>
+            <div class="task-list">
+  
+            </div>
+            <button  type="button" class="cleartask">clear tasks</button>
+        </div>
+    </div>
+    <script>
+        let text=document.querySelector('#text');
+        let addbtn=document.querySelector('.addtask');
+        let task=document.querySelector('.task-list');
+        let clearbtn=document.querySelector('.cleartask');
+
+        addbtn.addEventListener('click',function(){
+
+            let paragraph=document.createElement('p');
+            //creating a 
+             let link=document.createElement('a');
+             link.innerHTML='<i class="fa fa-remove"></i>';
+             task.appendChild(link);
+             link.classList.add('remove-item');
+            paragraph.classList.add('paragraph-styling');
+           
+            paragraph.innerText=text.value;
+            paragraph.append(link);
+            task.appendChild(paragraph);
+
+            // paragraph.addEventListener('dblclick',function(){
+            //     task.removeChild(paragraph);
+            // })
+
+            // paragraph.addEventListener('click',function(){
+            //     paragraph.style.textDecoration="line-through";
+            // })
+            link.addEventListener('click',function(){
+                task.removeChild(paragraph)
+                task.removeChild(link);
+            })
+            if(text.value==='')
+            {
+                alert('Please enter valid input');
+                task.removeChild(paragraph);
+            }
+            text.value='';
+            
+            
+            clearbtn.addEventListener('click',function(){
+                if(task.value==='')
+                {
+                    alert('hi');
+                }
+                    task.removeChild(paragraph);
+                
+             })
+
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url(./img/bcg.jpg)no-repeat center center/cover;
+            min-height: 100vh;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            border: 1px solid white;
+            flex: 0 0 80%;
+        }
+        .slider
+        {
+            width: 100%;
+            position: relative;
+            background: url(./img/img-0.jpg) no-repeat center center/cover;
+            height: 80vh;
+            
+        }
+
+        .btn{
+            padding: 10px 12px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .btn:hover{
+            background: green;
+            color: yellow;
+        }
+        .btn:active{
+            box-shadow: 3px 3px 5px white;
+        }
+        .prevbtn
+        {
+            position: absolute;
+            top:50%;
+            left: 0%;
+            transform: translate(-50%,-50%);
+        }
+        .nextbtn{
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: translate(50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slider">
+            <button type="button" class="btn prevbtn">Prev Btn</button>
+            <button type="button" class="btn nextbtn">Next Btn</button>
+        </div>
+    </div>
+    <script>
+
+        let counter=0;
+
+        let prevbtn=document.querySelector('.prevbtn');
+        let nextbtn=document.querySelector('.nextbtn');
+        let slider=document.querySelector('.slider');
+
+        prevbtn.addEventListener('click',function(){
+            if(counter===0)
+            {
+                counter=5;
+            }
+                counter--;
+                slider.style.backgroundImage=`url(./img/img-${counter}.jpg)`;    
+        })
+
+        nextbtn.addEventListener('click',function(){
+            if(counter===4)
+            {
+                counter=-1;
+            }
+            counter++;
+            slider.style.backgroundImage=`url(./img/img-${counter}.jpg)`;
+        
+        })
+    </script>
+</body>
+</html>

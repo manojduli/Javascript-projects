@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .box
+        {
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div  class="box"></div>
+    <script>
+        let x=document.querySelector('.box');
+        x.addEventListener('click',function(){
+            if(x.style.background='black')
+            {
+            x.style.background='red';
+            }
+        })
+        
+        x.addEventListener('mouseover',function(){
+            x.style.width='400px';
+            x.style.height='400px';
+            x.transition.all='ease-in';
+            x.style.background='blue'
+            x.transitiondelay='1s';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Colors</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background: black;
+            outline: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<button class="btn" type="button">Click Here to change background</button>
+<script>
+    let colors=['coral','green','blue','yellow','orange','grey','pink'];
+
+    let btn=document.querySelector('.btn');
+    let bodybcg=document.querySelector('body');
+
+    btn.addEventListener('click',function(){
+
+        // let random=Math.Floor(Math.random()*colors.length);
+        let random=Math.floor(Math.random()*colors.length);
+        bodybcg.style.background=colors[random];
+    })
+
+
+</script>
+    
+</body>
+</html>
